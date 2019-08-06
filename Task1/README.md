@@ -4,7 +4,7 @@
 > 2. 正则表达式
 
 **1.1 get和post请求**   
-1.学习get与post请求，尝试使用requests或者是urllib用get方法向https://www.baidu.com 发出一个请求，并将其返回结果输出。
+1.学习get与post请求，尝试使用requests或者是urllib用get方法向https://www.baidu.com 发出一个请求，并将其返回结果输出。见代码[task1.py]()
 ```
 import urllib.request  
 url = 'http://www.baidu.com'  
