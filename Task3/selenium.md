@@ -28,7 +28,29 @@ browser.quit()#浏览器退出
 
 #### 2.使用selenium模拟登陆163邮箱
 使用selenium模块可以让浏览器完全按照脚本运行，需要注意的点是邮箱账号登陆框对应在iframe标签中，想要定位查找账号输入元素，需要使用selenium提供的switch_to.frame()方法切换进入frame标签中，对应代码在这里：[code](https://github.com/lijinze9456yy000/Reptile_Learning/blob/master/Task3/open_163mail.py)
-![](https://s2.ax1x.com/2019/08/11/evyBrD.png)
+```
+from selenium import webdriver
+import time
+#打开谷歌浏览器
+browser=webdriver.Chrome()
+#打开百度网页
+browser.get("https://mail.163.com")
+#最大化浏览器窗口
+browser.maximize_window()
+#通过id属性寻找单个元素
+browser.find_element_by_id("lbNormal").click()
+#切换到frame标签
+browser.switch_to.frame(0)
+#通过name属性寻找单个元素
+browser.find_element_by_name("email").send_keys("gaoyangainiyibeizi")
+browser.find_element_by_name("password").send_keys("199456")
+#通过id属性寻找单个元素
+browser.find_element_by_id("dologin").click()
+#切换到frame标签
+browser.switch_to.frame("x-URS-iframe1565518371208.9683")
+browser.find_element_by_id("auto-id-1565518371608").click()
+time.sleep(10)
+```
 **成功进入163邮箱：**
 ![](https://s2.ax1x.com/2019/08/11/ev6ndH.png)
 **PS:163邮箱直通点:**
